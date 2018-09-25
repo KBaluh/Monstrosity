@@ -54,6 +54,7 @@
     <Compile Include="EF\MonsterContextProvider.cs" />
     <Compile Include="EF\MonsterContext.cs" />
     <Compile Include="Entities\Activity.cs" />
+    <Compile Include="Entities\ActivityState.cs" />
     <Compile Include="Infrastructure\DALInject.cs" />
     <Compile Include="Interfaces\IActivityRepository.cs" />
     <Compile Include="Interfaces\IActivityUoW.cs" />
@@ -63,6 +64,10 @@
     <Compile Include="Migrations\201809250830324_Initialize.cs" />
     <Compile Include="Migrations\201809250830324_Initialize.Designer.cs">
       <DependentUpon>201809250830324_Initialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809251122240_Activity.cs" />
+    <Compile Include="Migrations\201809251122240_Activity.Designer.cs">
+      <DependentUpon>201809251122240_Activity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +82,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201809250830324_Initialize.resx">
       <DependentUpon>201809250830324_Initialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809251122240_Activity.resx">
+      <DependentUpon>201809251122240_Activity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

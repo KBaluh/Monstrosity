@@ -6,8 +6,8 @@ namespace Monstrosity.DAL.Interfaces
     {
         TModel Get(TKey key);
         IEnumerable<TModel> GetAll();
-        void Create(TModel model);
-        void Update(TModel model);
+        void Create(TModel entity);
+        void Update(TModel entity);
         void Delete(TKey key);
     }
 }

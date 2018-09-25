@@ -31,14 +31,14 @@ namespace Monstrosity.DAL.Repositories
             return _context.Activities.ToList();
         }
 
-        public void Create(Activity model)
+        public void Create(Activity entity)
         {
-            _context.Activities.Add(model);
+            _context.Activities.Add(entity);
         }
 
-        public void Update(Activity model)
+        public void Update(Activity entity)
         {
-            _context.Entry(model).State = System.Data.Entity.EntityState.Modified;
+            _context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
         }
 
         public void Delete(int key)

@@ -47,5 +47,20 @@ namespace Monstrosity.DAL.Repositories
             if (entity != null)
                 _context.Activities.Remove(entity);
         }
+
+        public IEnumerable<Activity> GetNotStarted()
+        {
+            return _context.Activities.Where(a => a.ActivityStateId == 1).ToList();
+        }
+
+        public IEnumerable<Activity> GetInProgress()
+        {
+            return _context.Activities.Where(a => a.ActivityStateId == 2).ToList();
+        }
+
+        public IEnumerable<Activity> GetClosed()
+        {
+            return _context.Activities.Where(a => a.ActivityStateId == 3).ToList();
+        }
     }
 }

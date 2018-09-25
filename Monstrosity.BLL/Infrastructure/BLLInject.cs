@@ -12,6 +12,7 @@ namespace Monstrosity.BLL.Infrastructure
             dalInjector.Inject(container);
 
             container.Register<IActivityService, ActivityService>();
+            container.Register<IContactService, ContactService>();
         }
     }
 }

@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Monstrosity.DAL.Interfaces
 {
-    public interface IRepository<TModel, TKey> where TModel : class
+    public interface IRepository<TEntity, TKey> where TEntity : class
     {
-        TModel Get(TKey key);
-        IEnumerable<TModel> GetAll();
-        void Create(TModel entity);
-        void Update(TModel entity);
+        TEntity Get(TKey key);
+        IEnumerable<TEntity> GetAll();
+        IEnumerable<TEntity> GetAll(Func<TEntity, bool> filter);
+        void Create(TEntity entity);
+        void Update(TEntity entity);
         void Delete(TKey key);
     }
 }

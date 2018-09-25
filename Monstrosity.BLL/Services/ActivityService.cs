@@ -70,5 +70,23 @@ namespace Monstrosity.BLL.Services
                 _activityUoW.RejectChanges();
             }
         }
+
+        public IEnumerable<ActivityDTO> GetNotStarted()
+        {
+            var entities = _activityUoW.Activities.GetNotStarted();
+            return _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTO>>(entities);
+        }
+
+        public IEnumerable<ActivityDTO> GetInProgress()
+        {
+            var entities = _activityUoW.Activities.GetInProgress();
+            return _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTO>>(entities);
+        }
+
+        public IEnumerable<ActivityDTO> GetClosed()
+        {
+            var entities = _activityUoW.Activities.GetClosed();
+            return _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTO>>(entities);
+        }
     }
 }

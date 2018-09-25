@@ -34,6 +34,7 @@
     <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="SimpleInjector, Version=4.3.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.4.3.0\lib\net45\SimpleInjector.dll</HintPath>
     </Reference>
@@ -54,9 +55,13 @@
   <ItemGroup>
     <Compile Include="Infrastructure\BLLInject.cs" />
     <Compile Include="Interfaces\IActivityService.cs" />
+    <Compile Include="Interfaces\IBaseService.cs" />
+    <Compile Include="Interfaces\IContactService.cs" />
     <Compile Include="Models\ActivityDTO.cs" />
+    <Compile Include="Models\ContactDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ActivityService.cs" />
+    <Compile Include="Services\ContactService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Monstrosity.DAL\Monstrosity.DAL.csproj">

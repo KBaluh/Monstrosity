@@ -1,0 +1,44 @@
+﻿@model Monstrosity.Portal.Models.ContactListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Contacts</h2>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">@Model.ErrorMessage</div>
+}
+
+<div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default active">All</button>
+    <button type="button" class="btn btn-default">Regular</button>
+    <button type="button" class="btn btn-default">Employees</button>
+</div>
+
+<br />
+<br />
+
+<table class="table table-responsive table-striped">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Date of birth
+        </th>
+    </tr>
+    @foreach (var contact in Model.Contacts)
+    {
+        <tr>
+            <td>@contact.ContactId</td>
+            <td>@contact.Name</td>
+            <td>@contact.DoB.ToLongDateString()</td>
+        </tr>
+    }
+</table>

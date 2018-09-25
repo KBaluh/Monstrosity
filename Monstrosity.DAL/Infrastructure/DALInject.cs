@@ -13,6 +13,7 @@ namespace Monstrosity.DAL.Infrastructure
             container.Register<IContextProvider<MonsterContext>, MonsterContextProvider>(Lifestyle.Scoped);
             container.Register<IActivityRepository, ActivityRepository>(Lifestyle.Scoped);
             container.Register<IActivityUoW, ActivityUoW>(Lifestyle.Scoped);
+            container.Register<IContactRepository, ContactRepository>(Lifestyle.Scoped);
         }
     }
 }

@@ -19,9 +19,8 @@ namespace Monstrosity.DAL.Migrations
             //  to avoid creating duplicate seed data.
             context.ActivityStates.AddOrUpdate(
                 new ActivityState { ActivityStateId = 1, Name = "Not Active" },
-                new ActivityState { ActivityStateId = 2, Name = "Active" },
-                new ActivityState { ActivityStateId = 3, Name = "InProgress" },
-                new ActivityState { ActivityStateId = 4, Name = "Closed" }
+                new ActivityState { ActivityStateId = 2, Name = "InProgress" },
+                new ActivityState { ActivityStateId = 3, Name = "Closed" }
             );
 
             context.ContactTypes.AddOrUpdate(

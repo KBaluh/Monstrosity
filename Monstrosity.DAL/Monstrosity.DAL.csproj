@@ -60,6 +60,7 @@
     <Compile Include="Infrastructure\DALInject.cs" />
     <Compile Include="Interfaces\IActivityRepository.cs" />
     <Compile Include="Interfaces\IActivityUoW.cs" />
+    <Compile Include="Interfaces\IContactRepository.cs" />
     <Compile Include="Interfaces\IContextProvider.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Repositories\ActivityRepository.cs" />
     <Compile Include="Repositories\ActivityUoW.cs" />
     <Compile Include="Repositories\BaseUnitOfWork.cs" />
+    <Compile Include="Repositories\ContactRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

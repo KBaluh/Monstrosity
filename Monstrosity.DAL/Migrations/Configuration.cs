@@ -18,6 +18,12 @@ namespace Monstrosity.DAL.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+            context.ActivityStates.AddOrUpdate(
+                new Entities.ActivityState { ActivityStateId = 1, Name = "Not Active" },
+                new Entities.ActivityState { ActivityStateId = 2, Name = "Active" },
+                new Entities.ActivityState { ActivityStateId = 3, Name = "InProgress" },
+                new Entities.ActivityState { ActivityStateId = 4, Name = "Closed" }
+            );
         }
     }
 }

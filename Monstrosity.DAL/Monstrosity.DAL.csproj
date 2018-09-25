@@ -75,6 +75,10 @@
     <Compile Include="Migrations\201809251138304_Contact_ContactType.Designer.cs">
       <DependentUpon>201809251138304_Contact_ContactType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809251141049_ContactInActivity.cs" />
+    <Compile Include="Migrations\201809251141049_ContactInActivity.Designer.cs">
+      <DependentUpon>201809251141049_ContactInActivity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ActivityRepository.cs" />
@@ -94,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809251138304_Contact_ContactType.resx">
       <DependentUpon>201809251138304_Contact_ContactType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809251141049_ContactInActivity.resx">
+      <DependentUpon>201809251141049_ContactInActivity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

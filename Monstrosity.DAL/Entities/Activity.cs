@@ -20,5 +20,10 @@ namespace Monstrosity.DAL.Entities
 
         [ForeignKey(nameof(ActivityStateId))]
         public ActivityState ActivityState { get; set; }
+
+        public int? ContactId { get; set; }
+
+        [ForeignKey(nameof(ContactId))]
+        public Contact Contact { get; set; }
     }
 }

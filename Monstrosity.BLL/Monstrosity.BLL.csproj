@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SimpleInjector, Version=4.3.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.3.0\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -42,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\BLLInject.cs" />
     <Compile Include="Interfaces\IActivityService.cs" />
     <Compile Include="Models\ActivityDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,6 +56,9 @@
       <Project>{fb450d25-8904-49e7-84d5-e740059d62fe}</Project>
       <Name>Monstrosity.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -58,6 +58,11 @@
     <Compile Include="Interfaces\IActivityUoW.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Migrations\201809250830324_Initialize.cs" />
+    <Compile Include="Migrations\201809250830324_Initialize.Designer.cs">
+      <DependentUpon>201809250830324_Initialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ActivityRepository.cs" />
     <Compile Include="Repositories\ActivityUoW.cs" />
@@ -67,6 +72,10 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201809250830324_Initialize.resx">
+      <DependentUpon>201809250830324_Initialize.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

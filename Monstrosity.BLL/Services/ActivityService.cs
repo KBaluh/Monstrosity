@@ -1,5 +1,7 @@
-﻿using Monstrosity.BLL.Interfaces;
+﻿using AutoMapper;
+using Monstrosity.BLL.Interfaces;
 using Monstrosity.BLL.Models;
+using Monstrosity.DAL.Entities;
 using Monstrosity.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -25,13 +27,9 @@ namespace Monstrosity.BLL.Services
 
         public IEnumerable<ActivityDTO> GetAll()
         {
-            var list = new List<ActivityDTO>();
             var activities = _activityUoW.Activities.GetAll();
-            foreach (var activity in activities)
-            {
-                list.Add(new ActivityDTO { ActivityId = activity.ActivityId, Title = activity.Title });
-            }
-            return list;
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Activity, ActivityDTO>()).CreateMapper();
+            return mapper.Map<IEnumerable<Activity>, List<ActivityDTO>>(activities);
         }
 
         public void Create(ActivityDTO model)

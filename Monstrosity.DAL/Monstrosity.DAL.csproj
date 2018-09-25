@@ -55,6 +55,8 @@
     <Compile Include="EF\MonsterContext.cs" />
     <Compile Include="Entities\Activity.cs" />
     <Compile Include="Entities\ActivityState.cs" />
+    <Compile Include="Entities\Contact.cs" />
+    <Compile Include="Entities\ContactType.cs" />
     <Compile Include="Infrastructure\DALInject.cs" />
     <Compile Include="Interfaces\IActivityRepository.cs" />
     <Compile Include="Interfaces\IActivityUoW.cs" />
@@ -68,6 +70,10 @@
     <Compile Include="Migrations\201809251122240_Activity.cs" />
     <Compile Include="Migrations\201809251122240_Activity.Designer.cs">
       <DependentUpon>201809251122240_Activity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809251138304_Contact_ContactType.cs" />
+    <Compile Include="Migrations\201809251138304_Contact_ContactType.Designer.cs">
+      <DependentUpon>201809251138304_Contact_ContactType.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809251122240_Activity.resx">
       <DependentUpon>201809251122240_Activity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809251138304_Contact_ContactType.resx">
+      <DependentUpon>201809251138304_Contact_ContactType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

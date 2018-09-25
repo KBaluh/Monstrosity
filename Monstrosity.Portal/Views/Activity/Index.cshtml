@@ -10,12 +10,15 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<p>
+    @Model.ErrorMessage
+</p>
+
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ErrorMessage)
-        </th>
-        <th></th>
+        <th>ID</th>
+        <th>Title</th>
     </tr>
 
 @foreach (var item in Model.Activities) {

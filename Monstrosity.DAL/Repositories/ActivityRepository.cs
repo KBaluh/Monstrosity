@@ -9,9 +9,9 @@ namespace Monstrosity.DAL.Repositories
 {
     public class ActivityRepository : IActivityRepository
     {
-        private readonly MosterContext _context;
+        private readonly MonsterContext _context;
 
-        public ActivityRepository(MosterContext context)
+        public ActivityRepository(MonsterContext context)
         {
             _context = context;
         }

@@ -28,7 +28,8 @@ namespace Monstrosity.Portal.Controllers
             }
             catch (Exception ex)
             {
-                errorMessage = $"Не удалось загрузить активности.\n`{ex.Message}`";
+                activities = new List<ActivityDTO>();
+                errorMessage = $"Не удалось загрузить активности.\n`{ex.ToString()}`";
             }
 
             var viewModel = new ActivityListViewModel

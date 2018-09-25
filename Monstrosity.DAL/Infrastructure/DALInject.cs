@@ -9,9 +9,10 @@ namespace Monstrosity.DAL.Infrastructure
     {
         public void Inject(Container container)
         {
-            container.Register<MosterContext>(Lifestyle.Scoped);
-            container.Register<IActivityRepository, ActivityRepository>();
-            container.Register<IActivityUoW, ActivityUoW>();
+            container.Register<MonsterContext>(Lifestyle.Scoped);
+            container.Register<IContextProvider<MonsterContext>, MonsterContextProvider>(Lifestyle.Scoped);
+            container.Register<IActivityRepository, ActivityRepository>(Lifestyle.Scoped);
+            container.Register<IActivityUoW, ActivityUoW>(Lifestyle.Scoped);
         }
     }
 }

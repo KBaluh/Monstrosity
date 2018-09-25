@@ -3,11 +3,11 @@ using Monstrosity.DAL.Interfaces;
 
 namespace Monstrosity.DAL.Repositories
 {
-    public class ActivityUoW : BaseUnitOfWork<MosterContext>, IActivityUoW
+    public class ActivityUoW : BaseUnitOfWork<MonsterContext>, IActivityUoW
     {
         public IActivityRepository Activities { get; private set; }
 
-        public ActivityUoW(MosterContext context, IActivityRepository activityRepository) : base(context)
+        public ActivityUoW(MonsterContext context, IActivityRepository activityRepository) : base(context)
         {
             Activities = activityRepository;
         }

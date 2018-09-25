@@ -2,7 +2,7 @@
 
 namespace Monstrosity.DAL.Interfaces
 {
-    public interface IActivityUoW : IUnitOfWork<MosterContext>
+    public interface IActivityUoW : IUnitOfWork<MonsterContext>
     {
         IActivityRepository Activities { get; }
     }

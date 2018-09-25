@@ -51,11 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EF\MosterContext.cs" />
+    <Compile Include="EF\MonsterContextProvider.cs" />
+    <Compile Include="EF\MonsterContext.cs" />
     <Compile Include="Entities\Activity.cs" />
     <Compile Include="Infrastructure\DALInject.cs" />
     <Compile Include="Interfaces\IActivityRepository.cs" />
     <Compile Include="Interfaces\IActivityUoW.cs" />
+    <Compile Include="Interfaces\IContextProvider.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Migrations\201809250830324_Initialize.cs" />

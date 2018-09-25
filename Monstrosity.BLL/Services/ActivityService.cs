@@ -11,11 +11,11 @@ namespace Monstrosity.BLL.Services
 {
     public class ActivityService : IActivityService
     {
-        private readonly IActivityRepository _repository;
+        private readonly IActivityUoW _activityUoW;
 
-        public ActivityService(IActivityRepository repository)
+        public ActivityService(IActivityUoW activityUoW)
         {
-            _repository = repository;
+            _activityUoW = activityUoW;
         }
 
         public ActivityDTO Get(int id)
@@ -25,7 +25,13 @@ namespace Monstrosity.BLL.Services
 
         public IEnumerable<ActivityDTO> GetAll()
         {
-            throw new NotImplementedException();
+            var list = new List<ActivityDTO>();
+            var activities = _activityUoW.Activities.GetAll();
+            foreach (var activity in activities)
+            {
+                list.Add(new ActivityDTO { ActivityId = activity.ActivityId, Title = activity.Title });
+            }
+            return list;
         }
 
         public void Create(ActivityDTO model)

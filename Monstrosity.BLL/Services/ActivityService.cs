@@ -41,6 +41,7 @@ namespace Monstrosity.BLL.Services
             catch
             {
                 _activityUoW.RejectChanges();
+                throw;
             }
         }
 
@@ -55,6 +56,7 @@ namespace Monstrosity.BLL.Services
             catch
             {
                 _activityUoW.RejectChanges();
+                throw;
             }
         }
 
@@ -68,6 +70,7 @@ namespace Monstrosity.BLL.Services
             catch
             {
                 _activityUoW.RejectChanges();
+                throw;
             }
         }
 

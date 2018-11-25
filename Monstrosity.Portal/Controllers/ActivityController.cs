@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Monstrosity.Portal.Controllers
 {
+    [RoutePrefix("Activity")]
     public class ActivityController : Controller
     {
         private readonly IActivityService _service;
@@ -54,6 +55,39 @@ namespace Monstrosity.Portal.Controllers
                 ViewBag.ErrorMesage = "Error on creation";
             }
             return View(model);
+        }
+
+        [Route("Create")]
+        [HttpGet]
+        public ActionResult Create()
+        {
+            var viewModel = new ActivityViewModel
+            {
+                Activity = new ActivityDTO()
+            };
+            return View(viewModel);
+        }
+
+        [Route("Create")]
+        [HttpPost]
+        public ActionResult Create(ActivityViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                viewModel.ErrorMessage = "Проверьте поля!";
+                return View(viewModel);
+            }
+
+            try
+            {
+                _service.Create(viewModel.Activity);
+                viewModel.SuccessMessage = "Запись была создана успешно!";
+            }
+            catch (Exception ex)
+            {
+                viewModel.ErrorMessage = "Произошла ошибка при создании записи" + Environment.NewLine + ex.Message;
+            }
+            return View(viewModel);
         }
     }
 }

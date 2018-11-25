@@ -17,6 +17,7 @@ namespace Monstrosity.Portal.Controllers
         }
 
         // GET: Activity
+        [HttpGet]
         public ActionResult Index()
         {
             IEnumerable<ActivityDTO> activities = null;
@@ -38,6 +39,21 @@ namespace Monstrosity.Portal.Controllers
                 ErrorMessage = errorMessage
             };
             return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Index(ActivityDTO model)
+        {
+            try
+            {
+                _service.Create(model);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                ViewBag.ErrorMesage = "Error on creation";
+            }
+            return View(model);
         }
     }
 }

@@ -89,5 +89,42 @@ namespace Monstrosity.Portal.Controllers
             }
             return View(viewModel);
         }
+
+        [Route("Edit/{:id}")]
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            if (id == 0)
+            {
+                return HttpNotFound();
+            }
+
+            var activity = _service.Get(id);
+            if (activity == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new ActivityViewModel
+            {
+                Activity = activity
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(ActivityViewModel viewModel)
+        {
+            try
+            {
+                _service.Update(viewModel.Activity);
+                viewModel.SuccessMessage = "Запись успешно обновлена";
+            }
+            catch (Exception ex)
+            {
+                viewModel.ErrorMessage = string.Format("Произошла ошибка при сохранении{0}{1}", Environment.NewLine, ex.ToString());
+            }
+            return View(viewModel);
+        }
     }
 }

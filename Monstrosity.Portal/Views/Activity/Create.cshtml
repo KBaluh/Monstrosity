@@ -1,0 +1,80 @@
+﻿@model Monstrosity.Portal.Models.ActivityViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Новая запись</h2>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title">Произошла ошибка</h3>
+        </div>
+        <div class="panel-body">@Model.ErrorMessage</div>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.SuccessMessage))
+{
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title"></h3>
+        </div>
+        <div class="panel-body">
+            @Model.SuccessMessage
+            <br />
+            @Html.ActionLink("Назад к списку", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
+}
+
+    <form action="Create" method="post">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Activity.Title)
+                    @Html.TextBoxFor(x => x.Activity.Title, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Activity.DateFrom)
+                    @Html.TextBoxFor(x => x.Activity.DateFrom, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Activity.DateTo)
+                    @Html.TextBoxFor(x => x.Activity.DateTo, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Activity.ContactId)
+                    @Html.TextBoxFor(x => x.Activity.ContactId, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Activity.ActivityStateId)
+                    @Html.TextBoxFor(x => x.Activity.ActivityStateId, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        @if (string.IsNullOrEmpty(Model.SuccessMessage))
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Создать</button>
+                    @Html.ActionLink("Назад", "Index", null, new { @class = "btn btn-default" })
+                </div>
+            </div>
+        }
+    </form>

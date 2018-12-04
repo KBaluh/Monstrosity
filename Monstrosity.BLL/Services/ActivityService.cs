@@ -10,29 +10,27 @@ namespace Monstrosity.BLL.Services
     public class ActivityService : IActivityService
     {
         private readonly IActivityUoW _activityUoW;
-        private readonly IMapper _mapper;
 
         public ActivityService(IActivityUoW activityUoW)
         {
             _activityUoW = activityUoW;
-            _mapper = new MapperConfiguration(cfg => cfg.CreateMap<Activity, ActivityDTO>()).CreateMapper();
         }
 
         public ActivityDTO Get(int id)
         {
             var activity = _activityUoW.Activities.Get(id);
-            return _mapper.Map<Activity, ActivityDTO>(activity);
+            return GetEntityMapper().Map<Activity, ActivityDTO>(activity);
         }
 
         public IEnumerable<ActivityDTO> GetAll()
         {
             var activities = _activityUoW.Activities.GetAll();
-            return _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTO>>(activities);
+            return GetEntityMapper().Map<IEnumerable<Activity>, IEnumerable<ActivityDTO>>(activities);
         }
 
         public void Create(ActivityDTO model)
         {
-            var entity = _mapper.Map<ActivityDTO, Activity>(model);
+            var entity = GetTDOMapper().Map<ActivityDTO, Activity>(model);
             try
             {
                 _activityUoW.Activities.Create(entity);
@@ -47,7 +45,7 @@ namespace Monstrosity.BLL.Services
 
         public void Update(ActivityDTO model)
         {
-            var entity = _mapper.Map<ActivityDTO, Activity>(model);
+            var entity = GetTDOMapper().Map<ActivityDTO, Activity>(model);
             try
             {
                 _activityUoW.Activities.Update(entity);
@@ -77,19 +75,31 @@ namespace Monstrosity.BLL.Services
         public IEnumerable<ActivityDTO> GetNotStarted()
         {
             var entities = _activityUoW.Activities.GetNotStarted();
-            return _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTO>>(entities);
+            return GetEntityMapper().Map<IEnumerable<Activity>, IEnumerable<ActivityDTO>>(entities);
         }
 
         public IEnumerable<ActivityDTO> GetInProgress()
         {
             var entities = _activityUoW.Activities.GetInProgress();
-            return _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTO>>(entities);
+            return GetEntityMapper().Map<IEnumerable<Activity>, IEnumerable<ActivityDTO>>(entities);
         }
 
         public IEnumerable<ActivityDTO> GetClosed()
         {
             var entities = _activityUoW.Activities.GetClosed();
-            return _mapper.Map<IEnumerable<Activity>, IEnumerable<ActivityDTO>>(entities);
+            return GetEntityMapper().Map<IEnumerable<Activity>, IEnumerable<ActivityDTO>>(entities);
+        }
+
+        private IMapper GetEntityMapper()
+        {
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Activity, ActivityDTO>()).CreateMapper();
+            return mapper;
+        }
+
+        private IMapper GetTDOMapper()
+        {
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<ActivityDTO, Activity>()).CreateMapper();
+            return mapper;
         }
     }
 }
